@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VEYRA — Titanium Series Sunglasses</title>
+<meta name="description" content="VEYRA Titanium Series — polarized performance eyewear. Premium light-luxe product page concept." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf9f6;            /* gallery white */
+    --bg-2:#ffffff;
+    --bg-3:#f1efe9;
+    --line:rgba(22,22,26,.08);
+    --line-2:rgba(22,22,26,.16);
+    --ink:#16161a;
+    --txt:#16161a;
+    --txt-2:#76746d;
+    --gold:#a8823f;          /* deep bronze-gold */
+    --gold-soft:rgba(168,130,63,.1);
+    --shadow:0 24px 60px rgba(22,22,26,.08);
+    --d:'Syne',sans-serif;
+    --b:'Inter Tight',sans-serif;
+    --m:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:var(--b);line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--gold);color:#fff}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-2)}
+  .gold{color:var(--gold)}
+
+  /* ================= NAV ================= */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border .4s,box-shadow .4s;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(250,249,246,.85);backdrop-filter:blur(18px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line)}
+  .nav-in{display:flex;align-items:center;height:74px;gap:40px}
+  .logo{font-family:var(--d);font-weight:800;font-size:1.3rem;letter-spacing:.18em;color:var(--ink)}
+  .logo i{color:var(--gold);font-style:normal}
+  .nav-links{display:flex;gap:30px;font-size:.82rem;font-weight:500;color:var(--txt-2);letter-spacing:.04em}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.65);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:.85rem;transition:border-color .2s,background .2s;position:relative;backdrop-filter:blur(6px)}
+  .icon-btn:hover{border-color:var(--gold)}
+  .icon-btn .n{position:absolute;top:-4px;right:-4px;background:var(--gold);color:#fff;font-family:var(--m);font-size:.58rem;font-weight:700;min-width:16px;height:16px;border-radius:99px;display:grid;place-items:center}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;isolation:isolate}
+  .hero-img{position:absolute;inset:0;z-index:-2}
+  .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;animation:heroZoom 14s ease-out forwards}
+  @keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(250,249,246,.18) 0%,rgba(250,249,246,0) 30%,rgba(250,249,246,.88) 78%,var(--bg) 100%)}
+  .hero-in{width:100%;padding-bottom:90px}
+  .hero .kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:99px;padding:8px 18px;backdrop-filter:blur(10px);background:rgba(255,255,255,.7);margin-bottom:26px}
+  .hero .kicker .pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,130,63,.5);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(168,130,63,0)}100%{box-shadow:0 0 0 0 rgba(168,130,63,0)}}
+  h1{font-family:var(--d);font-weight:800;font-size:clamp(2.6rem,7.5vw,6rem);line-height:1.0;letter-spacing:-.01em;text-transform:uppercase;color:var(--ink)}
+  h1 .thin{display:block;font-weight:500;font-size:.42em;letter-spacing:.32em;color:var(--txt-2);margin-bottom:14px}
+  .hero p.lead{max-width:520px;color:#4a4942;font-size:1.02rem;font-weight:400;margin:22px 0 34px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--b);font-weight:600;font-size:.86rem;letter-spacing:.06em;border-radius:99px;padding:16px 34px;cursor:pointer;transition:all .25s;border:1px solid transparent}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000;transform:translateY(-2px);box-shadow:0 14px 34px rgba(22,22,26,.22)}
+  .btn-ghost{background:rgba(255,255,255,.7);border-color:var(--line-2);color:var(--ink);backdrop-filter:blur(8px)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .hero-stats{display:flex;gap:44px;margin-top:54px;flex-wrap:wrap}
+  .hstat .v{font-family:var(--d);font-weight:700;font-size:1.5rem;color:var(--ink)}
+  .hstat .k{font-family:var(--m);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-2)}
+
+  /* ================= MARQUEE ================= */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden;padding:16px 0;white-space:nowrap}
+  .marquee-track{display:inline-flex;gap:56px;animation:slide 28s linear infinite;font-family:var(--m);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-2)}
+  .marquee-track span b{color:var(--gold);font-weight:500}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ================= PRODUCT ================= */
+  .product{padding:110px 0 80px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:start}
+  .viewer{position:sticky;top:100px}
+  .main-frame{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);aspect-ratio:4/3.4;box-shadow:var(--shadow)}
+  .main-frame .ph{position:absolute;inset:0;opacity:0;transition:opacity .55s ease}
+  .main-frame .ph.active{opacity:1}
+  .main-frame .ph img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;will-change:transform}
+  .frame-tag{position:absolute;top:18px;left:18px;z-index:5;display:flex;gap:8px}
+  .tag{background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border:1px solid var(--line-2);border-radius:8px;padding:6px 12px;font-family:var(--m);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+  .tag.g{color:var(--gold);border-color:rgba(168,130,63,.45)}
+
+  .hotspot{position:absolute;z-index:6;width:26px;height:26px;border-radius:50%;border:0;background:rgba(168,130,63,.18);cursor:pointer;display:grid;place-items:center}
+  .hotspot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(168,130,63,.5);animation:pulse 2.4s infinite}
+  .hotspot .tip{position:absolute;bottom:140%;left:50%;transform:translateX(-50%) translateY(6px);width:215px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;text-align:left;opacity:0;pointer-events:none;transition:all .25s;box-shadow:0 18px 40px rgba(22,22,26,.14)}
+  .hotspot:hover .tip,.hotspot:focus-visible .tip{opacity:1;transform:translateX(-50%) translateY(0)}
+  .tip h6{font-family:var(--m);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .tip p{font-size:.76rem;color:#4a4942;line-height:1.45}
+
+  .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .thumb{border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:1;opacity:.6;transition:all .25s;background:var(--bg-2);padding:0}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb.active,.thumb:hover{opacity:1;border-color:var(--gold)}
+  .thumb:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* buy panel */
+  .panel .crumb{margin-bottom:18px}
+  h2.pname{font-family:var(--d);font-weight:700;font-size:clamp(1.8rem,3vw,2.5rem);text-transform:uppercase;line-height:1.08;margin-bottom:8px;color:var(--ink)}
+  .panel .sub{color:var(--txt-2);font-weight:400;font-size:.95rem}
+  .rate{display:flex;align-items:center;gap:10px;margin:18px 0;font-size:.85rem;color:var(--txt-2)}
+  .rate .s{color:var(--gold);letter-spacing:3px}
+  .rate b{color:var(--ink)}
+  .price-line{display:flex;align-items:baseline;gap:14px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
+  .price{font-family:var(--d);font-size:2rem;font-weight:700;color:var(--ink)}
+  .price small{font-size:.85rem;color:var(--txt-2);font-weight:500}
+  .strike{color:var(--txt-2);text-decoration:line-through;font-size:1rem}
+  .off{font-family:var(--m);font-size:.66rem;letter-spacing:.1em;background:var(--gold-soft);color:var(--gold);border:1px solid rgba(168,130,63,.3);border-radius:6px;padding:4px 10px}
+  .bnpl{font-size:.78rem;color:var(--txt-2);margin:-12px 0 26px}
+  .bnpl b{color:var(--ink)}
+
+  .opt{margin-bottom:24px}
+  .opt-label{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:12px}
+  .opt-label .sel{color:var(--gold);font-weight:500}
+  .colors{display:flex;gap:14px}
+  .c-dot{width:42px;height:42px;border-radius:50%;cursor:pointer;border:0;outline:1px solid var(--line-2);outline-offset:4px;transition:all .2s}
+  .c-dot:hover{transform:scale(1.1)}
+  .c-dot[aria-pressed="true"]{outline:1.5px solid var(--gold);transform:scale(1.1)}
+  .c-dot:focus-visible{outline:2px solid var(--gold)}
+  .sizes{display:flex;gap:10px;flex-wrap:wrap}
+  .size{font-family:var(--m);font-size:.76rem;border:1px solid var(--line-2);background:var(--bg-2);color:var(--ink);border-radius:10px;padding:11px 18px;cursor:pointer;transition:all .2s}
+  .size[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .size:hover{border-color:var(--gold)}
+  .size:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  .lensopt{display:grid;gap:10px}
+  .lens-card{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line-2);border-radius:14px;padding:15px 18px;cursor:pointer;background:var(--bg-2);transition:all .2s;text-align:left;color:var(--ink);font-family:var(--b)}
+  .lens-card:hover{border-color:var(--gold)}
+  .lens-card[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft)}
+  .lens-card .t{font-weight:600;font-size:.88rem}
+  .lens-card .d{font-size:.72rem;color:var(--txt-2)}
+  .lens-card .pr{font-family:var(--m);font-size:.74rem;color:var(--gold)}
+
+  .buy-actions{display:flex;gap:12px;margin-top:30px}
+  .qtybox{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:99px;background:var(--bg-2)}
+  .qtybox button{width:46px;height:54px;background:none;border:0;color:var(--ink);font-size:1.15rem;cursor:pointer}
+  .qtybox output{width:30px;text-align:center;font-family:var(--m);font-size:.9rem}
+  .add-main{flex:1;border-radius:99px;border:0;background:var(--ink);color:#fff;font-weight:700;font-size:.92rem;letter-spacing:.05em;cursor:pointer;transition:all .25s;font-family:var(--b)}
+  .add-main:hover{background:#000;box-shadow:0 14px 36px rgba(22,22,26,.22)}
+  .tryon{margin-top:12px;width:100%;border-radius:99px;padding:16px;background:transparent;border:1px solid var(--line-2);color:var(--ink);font-weight:600;font-size:.85rem;cursor:pointer;transition:all .25s;font-family:var(--b)}
+  .tryon:hover{border-color:var(--gold);color:var(--gold)}
+  .assure{display:flex;gap:22px;margin-top:24px;font-size:.72rem;color:var(--txt-2);flex-wrap:wrap}
+  .assure span::before{content:"— ";color:var(--gold)}
+
+  /* ================= SPECS ================= */
+  .specs{padding:90px 0;border-top:1px solid var(--line);background:var(--bg-3)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:46px;gap:20px;flex-wrap:wrap}
+  h3.sec-title{font-family:var(--d);font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);text-transform:uppercase;line-height:1.1;color:var(--ink)}
+  .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .spec{border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:var(--bg-2);transition:all .3s;position:relative;overflow:hidden}
+  .spec:hover{border-color:rgba(168,130,63,.45);transform:translateY(-4px);box-shadow:var(--shadow)}
+  .spec .num{font-family:var(--m);font-size:.62rem;color:var(--txt-2);letter-spacing:.16em}
+  .spec h4{font-family:var(--d);font-weight:600;font-size:1.05rem;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+  .spec p{font-size:.83rem;color:var(--txt-2);font-weight:400}
+  .spec .big{position:absolute;right:18px;top:14px;font-family:var(--d);font-weight:800;font-size:2.4rem;color:rgba(22,22,26,.05)}
+
+  /* ================= LOOKBOOK ================= */
+  .lookbook{padding:90px 0}
+  .lb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .lb{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;cursor:pointer;box-shadow:0 16px 40px rgba(22,22,26,.06)}
+  .lb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .lb:hover img{transform:scale(1.06)}
+  .lb .cap{position:absolute;left:0;right:0;bottom:0;padding:50px 22px 20px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72));display:flex;justify-content:space-between;align-items:flex-end;color:#fff}
+  .lb .cap .nm{font-family:var(--d);font-weight:600;font-size:.95rem;text-transform:uppercase}
+  .lb .cap .pr{font-family:var(--m);font-size:.74rem;color:#e3c98c}
+  .lb .cap .tagline{font-size:.7rem;color:#d6d4cd}
+
+  /* ================= REVIEWS ================= */
+  .reviews{padding:90px 0;border-top:1px solid var(--line)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rev{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--bg-2)}
+  .rev .s{color:var(--gold);letter-spacing:3px;font-size:.85rem}
+  .rev p{font-size:.88rem;font-weight:400;color:#3c3b35;margin:14px 0 18px}
+  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .who img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+  .rev .who b{font-size:.82rem;display:block;color:var(--ink)}
+  .rev .who span{font-family:var(--m);font-size:.62rem;color:var(--txt-2);letter-spacing:.1em;text-transform:uppercase}
+
+  /* ================= FINAL CTA / FOOTER ================= */
+  .final{padding:110px 0;text-align:center;border-top:1px solid var(--line);background:
+    radial-gradient(700px 320px at 50% 110%,rgba(168,130,63,.1),transparent 70%)}
+  .final h3{font-family:var(--d);font-weight:800;font-size:clamp(1.8rem,4.5vw,3.4rem);text-transform:uppercase;line-height:1.05;margin-bottom:18px;color:var(--ink)}
+  .final p{color:var(--txt-2);max-width:460px;margin:0 auto 34px;font-weight:400}
+  footer{background:var(--ink);color:#cfcdc6;padding:56px 0 36px}
+  .f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+  footer .logo{color:#fff}
+  footer h5{font-family:var(--d);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;color:#fff}
+  footer li{list-style:none;font-size:.8rem;color:#9f9d95;margin-bottom:9px}
+  footer li a:hover{color:#e3c98c}
+  .f-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#9f9d95}
+
+  /* sticky buy bar */
+  .stickybar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-top:1px solid var(--line-2);transform:translateY(110%);transition:transform .4s ease;box-shadow:0 -10px 36px rgba(22,22,26,.08)}
+  .stickybar.show{transform:none}
+  .sb-in{display:flex;align-items:center;gap:18px;padding:13px 0}
+  .sb-in img{width:46px;height:46px;border-radius:10px;object-fit:cover}
+  .sb-name{font-family:var(--d);font-weight:600;font-size:.85rem;text-transform:uppercase;color:var(--ink)}
+  .sb-price{font-family:var(--m);font-size:.78rem;color:var(--gold)}
+  .sb-btn{margin-left:auto;border-radius:99px;border:0;background:var(--ink);color:#fff;font-weight:700;font-size:.8rem;padding:13px 28px;cursor:pointer}
+
+  /* toast */
+  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(16px);background:var(--ink);color:#fff;padding:14px 26px;border-radius:99px;font-size:.84rem;font-weight:600;opacity:0;pointer-events:none;transition:all .35s;z-index:120;box-shadow:0 16px 40px rgba(22,22,26,.3)}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .hero-img img,.marquee-track{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  @media (max-width:1020px){
+    .product{grid-template-columns:1fr;gap:44px}
+    .viewer{position:static}
+    .spec-grid,.rev-grid,.lb-grid{grid-template-columns:repeat(2,1fr)}
+    .nav-links{display:none}
+  }
+  @media (max-width:640px){
+    .spec-grid,.rev-grid,.lb-grid{grid-template-columns:1fr}
+    .f-grid{grid-template-columns:1fr 1fr}
+    .hero-stats{gap:26px}
+    .sb-name{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#">VEYR<i>A</i></a>
+    <div class="nav-links">
+      <a href="#product">Sunglasses</a>
+      <a href="#">Optical</a>
+      <a href="#">Color Lenses</a>
+      <a href="#collection">Collection</a>
+      <a href="#">Stores</a>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search">⌕</button>
+      <button class="icon-btn" aria-label="Account">◯</button>
+      <button class="icon-btn" id="bag" aria-label="Bag"><span>▢</span><span class="n" id="bagN">0</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?q=80&w=2000&auto=format&fit=crop" alt="Model wearing sunglasses in golden desert light" />
+  </div>
+  <div class="wrap hero-in">
+    <span class="kicker"><span class="pulse"></span><span class="mono" style="color:var(--ink)">SS26 · Titanium Series · Now live</span></span>
+    <h1><span class="thin">Engineered for light</span>TITANIUM<br>SERIES</h1>
+    <p class="lead">Aerospace-grade titanium. Zeiss-class polarized optics. Built for 45° summers and zero compromise. This is eyewear as precision instrument.</p>
+    <div class="hero-cta">
+      <a href="#product"><button class="btn btn-dark">Configure yours — AED 899</button></a>
+      <button class="btn btn-ghost" data-vto>◉ &nbsp;Virtual try-on</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="v">14.8g</div><div class="k">Frame weight</div></div>
+      <div class="hstat"><div class="v">UV400</div><div class="k">Full-spectrum block</div></div>
+      <div class="hstat"><div class="v">99.9%</div><div class="k">Glare eliminated</div></div>
+      <div class="hstat"><div class="v">4.9 ★</div><div class="k">12,400 reviews</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Free delivery across GCC <b>·</b></span><span>Buy 1 Get 1 — code <b>B1G1</b></span><span>Split in 4 with Tabby &amp; Tamara <b>·</b></span><span>Click &amp; collect from 260+ stores <b>·</b></span><span>1-year warranty <b>·</b></span><span>30-day exchange <b>·</b></span>
+    <span>Free delivery across GCC <b>·</b></span><span>Buy 1 Get 1 — code <b>B1G1</b></span><span>Split in 4 with Tabby &amp; Tamara <b>·</b></span><span>Click &amp; collect from 260+ stores <b>·</b></span><span>1-year warranty <b>·</b></span><span>30-day exchange <b>·</b></span>
+  </div>
+</div>
+
+<!-- ================= PRODUCT ================= -->
+<section class="wrap product" id="product">
+  <div class="viewer rv">
+    <div class="main-frame" id="frame">
+      <div class="frame-tag">
+        <span class="tag g">Polarized</span>
+        <span class="tag">In stock · Dubai</span>
+      </div>
+
+      <div class="ph active"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1600&auto=format&fit=crop" alt="Titanium Series sunglasses, front view"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1600&auto=format&fit=crop" alt="Titanium Series sunglasses, detail view"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=1600&auto=format&fit=crop" alt="Titanium Series sunglasses, lens close-up"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=1600&auto=format&fit=crop" alt="Titanium Series sunglasses, lifestyle"></div>
+
+      <button class="hotspot" style="top:34%;left:30%" aria-label="Lens spec">
+        <span class="tip"><h6>Nano-coated lens</h6><p>Oleophobic + hydrophobic layer. Sweat, sand and fingerprints wipe clean instantly.</p></span>
+      </button>
+      <button class="hotspot" style="top:30%;left:62%" aria-label="Hinge spec">
+        <span class="tip"><h6>Micro-spring hinge</h6><p>Forged titanium hinge tested to 50,000 open-close cycles. Zero loosening.</p></span>
+      </button>
+      <button class="hotspot" style="top:62%;left:46%" aria-label="Bridge spec">
+        <span class="tip"><h6>Adaptive nose bridge</h6><p>Self-adjusting silicone pads — engineered grip that improves as you sweat.</p></span>
+      </button>
+    </div>
+    <div class="thumbs" role="group" aria-label="Product gallery">
+      <button class="thumb active"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=400&auto=format&fit=crop" alt=""></button>
+      <button class="thumb"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop" alt=""></button>
+      <button class="thumb"><img src="https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=400&auto=format&fit=crop" alt=""></button>
+      <button class="thumb"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=400&auto=format&fit=crop" alt=""></button>
+    </div>
+  </div>
+
+  <div class="panel rv">
+    <p class="mono crumb">Sunglasses / Titanium Series / TS-01</p>
+    <h2 class="pname">Meridian TS-01</h2>
+    <p class="sub">Polarized aviator in aerospace titanium — the flagship of the Titanium Series.</p>
+    <div class="rate"><span class="s">★★★★★</span><span><b>4.9</b> / 12,400 verified reviews</span></div>
+
+    <div class="price-line">
+      <span class="price"><small>AED</small> 899</span>
+      <span class="strike">AED 1,199</span>
+      <span class="off">SAVE 25%</span>
+    </div>
+    <p class="bnpl">or 4 × <b>AED 224.75</b> interest-free · Tabby / Tamara at checkout</p>
+
+    <div class="opt">
+      <div class="opt-label"><span>Frame finish</span><span class="sel" id="selColor">Brushed Gold</span></div>
+      <div class="colors" role="group" aria-label="Frame finish">
+        <button class="c-dot" aria-pressed="true"  aria-label="Brushed Gold"   data-name="Brushed Gold"   style="background:linear-gradient(135deg,#e7c98b,#a87f3e)"></button>
+        <button class="c-dot" aria-pressed="false" aria-label="Stealth Black"  data-name="Stealth Black"  style="background:linear-gradient(135deg,#3a3a3e,#0c0c0e)"></button>
+        <button class="c-dot" aria-pressed="false" aria-label="Polar Silver"   data-name="Polar Silver"   style="background:linear-gradient(135deg,#e9eaec,#8f9298)"></button>
+        <button class="c-dot" aria-pressed="false" aria-label="Desert Bronze"  data-name="Desert Bronze"  style="background:linear-gradient(135deg,#b98a5d,#6e4a2a)"></button>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="opt-label"><span>Size</span><span class="sel" id="selSize">M · 54-18-145</span></div>
+      <div class="sizes" role="group" aria-label="Size">
+        <button class="size" aria-pressed="false" data-name="S · 51-18-140">S</button>
+        <button class="size" aria-pressed="true"  data-name="M · 54-18-145">M</button>
+        <button class="size" aria-pressed="false" data-name="L · 57-18-150">L</button>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="opt-label"><span>Lens package</span><span class="sel" id="selLens">Polarized — included</span></div>
+      <div class="lensopt" role="group" aria-label="Lens package">
+        <button class="lens-card" aria-pressed="true" data-name="Polarized — included" data-add="0">
+          <span><span class="t">Polarized UV400</span><br><span class="d">Glare-cut · color-true · included</span></span>
+          <span class="pr">INCLUDED</span>
+        </button>
+        <button class="lens-card" aria-pressed="false" data-name="Polarized + Prescription" data-add="200">
+          <span><span class="t">Polarized + Prescription</span><br><span class="d">SPH 0.00 to −8.00 · added at checkout</span></span>
+          <span class="pr">+ AED 200</span>
+        </button>
+        <button class="lens-card" aria-pressed="false" data-name="Photochromic Pro" data-add="350">
+          <span><span class="t">Photochromic Pro</span><br><span class="d">Auto-darkens indoors to full sun in 8s</span></span>
+          <span class="pr">+ AED 350</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="buy-actions">
+      <div class="qtybox"><button id="dec" aria-label="Decrease">−</button><output id="q">1</output><button id="inc" aria-label="Increase">+</button></div>
+      <button class="add-main" id="add">Add to bag — AED 899</button>
+    </div>
+    <button class="tryon" data-vto>◉ &nbsp;Virtual try-on — see it on your face</button>
+
+    <div class="assure">
+      <span>Ships today from Dubai</span>
+      <span>1-year warranty</span>
+      <span>30-day exchange</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPECS ================= -->
+<section class="specs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="mono" style="margin-bottom:10px">Engineering</p>
+        <h3 class="sec-title">Built like an instrument,<br><span class="gold">worn like nothing.</span></h3>
+      </div>
+      <p style="max-width:340px;color:var(--txt-2);font-size:.86rem">Every component is specified, tested and certified — the spec sheet is the design.</p>
+    </div>
+    <div class="spec-grid rv">
+      <article class="spec"><span class="big">Ti</span><p class="num">MATERIAL / 01</p><h4>β-Titanium frame</h4><p>Aerospace alloy, 40% lighter than acetate with memory flex that returns to shape after impact.</p></article>
+      <article class="spec"><span class="big">P9</span><p class="num">OPTICS / 02</p><h4>9-layer polarization</h4><p>Cuts 99.9% of horizontal glare from roads, water and glass while keeping color fidelity at Cat. 3.</p></article>
+      <article class="spec"><span class="big">UV</span><p class="num">PROTECTION / 03</p><h4>UV400 certified</h4><p>Blocks 100% of UVA/UVB up to 400nm — independently lab-tested for desert-grade sun exposure.</p></article>
+      <article class="spec"><span class="big">N°</span><p class="num">COATING / 04</p><h4>Nano hydrophobic</h4><p>Sweat, salt water and dust slide off. Anti-fog inner coating for AC-to-outdoor transitions.</p></article>
+      <article class="spec"><span class="big">Rx</span><p class="num">VISION / 05</p><h4>Prescription ready</h4><p>Digital free-form Rx lenses from 0.00 to −8.00, cut in-house and shipped within 48 hours.</p></article>
+      <article class="spec"><span class="big">50K</span><p class="num">DURABILITY / 06</p><h4>50,000-cycle hinges</h4><p>Forged micro-spring hinges torture-tested to a decade of daily use without loosening.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOOKBOOK ================= -->
+<section class="lookbook" id="collection">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="mono" style="margin-bottom:10px">The collection</p>
+        <h3 class="sec-title">Titanium Series — three icons.</h3>
+      </div>
+      <a href="#" class="mono" style="color:var(--gold)">View all 24 frames →</a>
+    </div>
+    <div class="lb-grid rv">
+      <article class="lb">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop" alt="Model wearing Meridian TS-01">
+        <div class="cap"><div><div class="nm">Meridian TS-01</div><div class="tagline">Polarized aviator</div></div><div class="pr">AED 899</div></div>
+      </article>
+      <article class="lb">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Model wearing Halo TS-02">
+        <div class="cap"><div><div class="nm">Halo TS-02</div><div class="tagline">Round optical-ready</div></div><div class="pr">AED 799</div></div>
+      </article>
+      <article class="lb">
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1200&auto=format&fit=crop" alt="Model wearing Vector TS-03">
+        <div class="cap"><div><div class="nm">Vector TS-03</div><div class="tagline">Square performance</div></div><div class="pr">AED 949</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="mono" style="margin-bottom:10px">12,400 verified buyers</p>
+        <h3 class="sec-title">Rated 4.9 — <span class="gold">they don't go back.</span></h3>
+      </div>
+    </div>
+    <div class="rev-grid rv">
+      <article class="rev">
+        <div class="s">★★★★★</div>
+        <p>"Drove Sheikh Zayed Road at sunset with zero glare. The weight is unreal — I forget I'm wearing them."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt=""><div><b>Omar K.</b><span>Dubai · Verified</span></div></div>
+      </article>
+      <article class="rev">
+        <div class="s">★★★★★</div>
+        <p>"Added my prescription at checkout, delivered in two days. The photochromic lens upgrade is genuinely magic."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt=""><div><b>Sara M.</b><span>Abu Dhabi · Verified</span></div></div>
+      </article>
+      <article class="rev">
+        <div class="s">★★★★★</div>
+        <p>"Used the virtual try-on, picked the brushed gold, perfect on first delivery. Best eyewear purchase I've made."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=200&auto=format&fit=crop" alt=""><div><b>Lena V.</b><span>Riyadh · Verified</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final rv">
+  <div class="wrap">
+    <p class="mono" style="margin-bottom:14px">Limited SS26 production run</p>
+    <h3>See the world<br><span class="gold">in precision.</span></h3>
+    <p>Configured, cut and shipped from Dubai within 48 hours. Try it on virtually before you decide.</p>
+    <a href="#product"><button class="btn btn-dark">Configure Meridian TS-01</button></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <p class="logo" style="margin-bottom:14px">VEYR<i>A</i></p>
+        <p style="font-size:.8rem;color:#9f9d95;max-width:280px">Precision eyewear for the Gulf. Sunglasses, optical and color lenses — engineered, not just designed.</p>
+      </div>
+      <ul><h5>Shop</h5><li><a href="#">Sunglasses</a></li><li><a href="#">Optical frames</a></li><li><a href="#">Color lenses</a></li><li><a href="#">Corrective lenses</a></li><li><a href="#">Accessories</a></li></ul>
+      <ul><h5>Support</h5><li><a href="#">Track order</a></li><li><a href="#">Returns &amp; exchange</a></li><li><a href="#">Warranty</a></li><li><a href="#">WhatsApp 24/7</a></li><li><a href="#">Free eye test</a></li></ul>
+      <ul><h5>Company</h5><li><a href="#">About</a></li><li><a href="#">Stores</a></li><li><a href="#">Careers</a></li><li><a href="#">Journal</a></li></ul>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 VEYRA — concept build for internal review</span>
+      <span>Apple Pay · Tabby · Tamara · Visa · Mastercard</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky buy bar -->
+<div class="stickybar" id="sticky">
+  <div class="wrap sb-in">
+    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=200&auto=format&fit=crop" alt="">
+    <div><div class="sb-name">Meridian TS-01</div><div class="sb-price" id="sbPrice">AED 899</div></div>
+    <button class="sb-btn" id="sbAdd">Add to bag</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  // ---------- nav scroll state ----------
+  const nav = document.getElementById('nav');
+  const sticky = document.getElementById('sticky');
+  const productSec = document.getElementById('product');
+  addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', scrollY > 30);
+    const past = scrollY > productSec.offsetTop + productSec.offsetHeight - innerHeight;
+    sticky.classList.toggle('show', past);
+  }, {passive:true});
+
+  // ---------- gallery ----------
+  const phs = document.querySelectorAll('.main-frame .ph');
+  const thumbs = document.querySelectorAll('.thumb');
+  thumbs.forEach((t,i) => t.addEventListener('click', () => {
+    thumbs.forEach(x => x.classList.remove('active'));
+    phs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    phs[i].classList.add('active');
+  }));
+
+  // ---------- 3D tilt on main image ----------
+  const frame = document.getElementById('frame');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    frame.addEventListener('mousemove', e => {
+      const r = frame.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      frame.querySelectorAll('.ph img').forEach(img =>
+        img.style.transform = `scale(1.06) translate(${x*-12}px, ${y*-12}px)`);
+    });
+    frame.addEventListener('mouseleave', () =>
+      frame.querySelectorAll('.ph img').forEach(img => img.style.transform = ''));
+  }
+
+  // ---------- configurator ----------
+  const BASE = 899;
+  let lensAdd = 0;
+  const q = document.getElementById('q');
+  const add = document.getElementById('add');
+  const sbPrice = document.getElementById('sbPrice');
+  const bagN = document.getElementById('bagN');
+  const toast = document.getElementById('toast');
+
+  function fmt(n){ return 'AED ' + n.toLocaleString('en'); }
+  function total(){ return (BASE + lensAdd) * +q.value; }
+  function refresh(){
+    add.textContent = 'Add to bag — ' + fmt(total());
+    sbPrice.textContent = fmt(BASE + lensAdd);
+  }
+
+  function group(selector, labelId, cb){
+    const items = document.querySelectorAll(selector);
+    items.forEach(it => it.addEventListener('click', () => {
+      items.forEach(x => x.setAttribute('aria-pressed','false'));
+      it.setAttribute('aria-pressed','true');
+      document.getElementById(labelId).textContent = it.dataset.name;
+      if(cb) cb(it);
+    }));
+  }
+  group('.c-dot','selColor');
+  group('.size','selSize');
+  group('.lens-card','selLens', it => { lensAdd = +it.dataset.add; refresh(); });
+
+  document.getElementById('inc').onclick = () => { q.value = Math.min(9,+q.value+1); refresh(); };
+  document.getElementById('dec').onclick = () => { q.value = Math.max(1,+q.value-1); refresh(); };
+
+  function notify(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(notify.t);
+    notify.t = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+  function addToBag(){
+    bagN.textContent = +bagN.textContent + +q.value;
+    notify('Added — Meridian TS-01 · ' + document.getElementById('selColor').textContent + ' · ' + fmt(total()));
+  }
+  add.onclick = addToBag;
+  document.getElementById('sbAdd').onclick = addToBag;
+
+  document.querySelectorAll('[data-vto]').forEach(b =>
+    b.onclick = () => notify('Virtual try-on hook — connect AR / camera SDK here.'));
+
+  // ---------- scroll reveal ----------
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
